@@ -1,0 +1,43 @@
+nodes:
+  USOM-IP-Aggregator:
+    inputs:
+      - USOM-IP-Input
+    output: true
+    prototype: stdlib.aggregatorIPv4Generic
+  USOM-DOMAIN-Aggregator:
+    inputs:
+      - USOM-DOMAIN-Input
+    output: true
+    prototype: stdlib.aggregatorDomain
+  USOM-URL-Aggregator:
+    inputs:
+      - USOM-URL-Input
+    output: true
+    prototype: stdlib.aggregatorURL
+  USOM-IP-Feed:
+    inputs:
+      - USOM-IP-Aggregator
+    output: false
+    prototype: stdlib.feedHCGreenWithValue
+  USOM-DOMAIN-Feed:
+    inputs:
+      - USOM-DOMAIN-Aggregator
+    output: false
+    prototype: stdlib.feedHCGreenWithValue
+  USOM-URL-Feed:
+    inputs:
+      - USOM-URL-Aggregator
+    output: false
+    prototype: stdlib.feedHCGreenWithValue
+  USOM-IP-Input:
+    inputs: []
+    output: true
+    prototype: usom.IPs
+  USOM-DOMAIN-Input:
+    inputs: []
+    output: true
+    prototype: usom.DOMAINs
+  USOM-URL-Input:
+    inputs: []
+    output: true
+    prototype: usom.URLs
